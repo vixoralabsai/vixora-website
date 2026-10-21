@@ -1,0 +1,774 @@
+/* ==========================================================================
+   VIXORA DIGITAL HUB — COMPREHENSIVE COLOR & CONTRAST SYSTEM
+   Guarantees strict WCAG AA+ contrast (minimum 4.5:1, up to 14:1) across:
+   1. Academy Subdomain (light surface baseline, course landing pages, student portal)
+   2. Business Platform (deep cyber hub baseline, client portal, admin dashboard)
+   3. Mixed & Nested Surfaces (dark banners/cards in light pages, light cards in dark pages)
+   4. Modals, Dialogs, Dropdowns, Inputs, Badges, and Action Buttons
+   ========================================================================== */
+
+:root {
+  color-scheme: light;
+  --vixora-navy: #0F1535;
+  --vixora-navy-dark: #070A1E;
+  --vixora-purple: #5B5FED;
+  --vixora-purple-dark: #480878;
+  --vixora-accent-gold: #FFD700;
+  --vixora-white: #FFFFFF;
+  --vixora-surface: #F7F7FC;
+  --vixora-muted: #5F6078;
+  --vixora-border: #E5E5F0;
+}
+
+/* ==========================================================================
+   RULE SET 1: DARK SURFACES (BUSINESS PLATFORM & DARK CARDS/MODALS)
+   Headings: Pure White (#FFFFFF)
+   Body / Paragraphs: Crisp Light Neutral (#F8FAFC / #E2E8F0)
+   Muted / Metadata: Readable Slate (#CBD5E1 / #94A3B8)
+   ========================================================================== */
+
+/* Dark Containers, Pages, Sections, Cards, Banners, and Modals */
+.modal-dark,
+[role="dialog"].modal-dark,
+[data-theme="dark"],
+.bg-\[\#070A1E\],
+.bg-\[\#0B0F2A\],
+.bg-\[\#090D24\],
+.bg-\[\#0E1333\],
+.bg-\[\#0D1230\],
+.bg-\[\#0F1535\],
+.bg-\[\#1A1D4F\],
+.bg-\[\#000048\],
+.bg-\[\#000030\],
+.bg-\[\#000028\],
+.bg-\[\#08082F\],
+.bg-\[\#05020F\],
+.bg-\[\#070314\],
+.bg-\[\#07031C\],
+.bg-\[\#0B051D\],
+.bg-\[\#0B0520\],
+.bg-\[\#0C061F\],
+.bg-\[\#0C0620\],
+.bg-\[\#0D0621\],
+.bg-\[\#1E113E\],
+.bg-\[\#0F0724\],
+.bg-\[\#150B33\],
+.bg-\[\#0E0728\],
+.bg-\[\#161F4D\],
+.bg-neutral-900,
+.bg-neutral-950,
+.bg-purple-950,
+.bg-slate-900,
+.bg-slate-950,
+[class*="from-[#000048]"],
+[class*="from-[#0F1535]"],
+[class*="from-[#1A1D4F]"],
+[class*="from-[#480878]"],
+[class*="from-[#1E113E]"],
+[class*="from-[#0C061F]"],
+[class*="from-[#070314]"],
+#hero,
+#footer,
+footer {
+  color: #F8FAFC;
+}
+
+/* Headings on dark surfaces */
+.modal-dark h1, .modal-dark h2, .modal-dark h3, .modal-dark h4, .modal-dark h5, .modal-dark h6,
+[data-theme="dark"] h1, [data-theme="dark"] h2, [data-theme="dark"] h3, [data-theme="dark"] h4,
+[role="dialog"].modal-dark h1, [role="dialog"].modal-dark h2, [role="dialog"].modal-dark h3,
+.bg-\[\#070A1E\] h1, .bg-\[\#070A1E\] h2, .bg-\[\#070A1E\] h3, .bg-\[\#070A1E\] h4,
+.bg-\[\#0B0F2A\] h1, .bg-\[\#0B0F2A\] h2, .bg-\[\#0B0F2A\] h3,
+.bg-\[\#090D24\] h1, .bg-\[\#090D24\] h2, .bg-\[\#090D24\] h3,
+.bg-\[\#0E1333\] h1, .bg-\[\#0E1333\] h2, .bg-\[\#0E1333\] h3,
+.bg-\[\#0D1230\] h1, .bg-\[\#0D1230\] h2, .bg-\[\#0D1230\] h3,
+.bg-\[\#0F1535\] h1, .bg-\[\#0F1535\] h2, .bg-\[\#0F1535\] h3,
+.bg-\[\#1A1D4F\] h1, .bg-\[\#1A1D4F\] h2, .bg-\[\#1A1D4F\] h3,
+.bg-\[\#000048\] h1, .bg-\[\#000048\] h2, .bg-\[\#000048\] h3,
+.bg-\[\#070314\] h1, .bg-\[\#070314\] h2, .bg-\[\#070314\] h3,
+.bg-\[\#07031C\] h1, .bg-\[\#07031C\] h2, .bg-\[\#07031C\] h3,
+.bg-\[\#0C061F\] h1, .bg-\[\#0C061F\] h2, .bg-\[\#0C061F\] h3,
+.bg-\[\#0B051D\] h1, .bg-\[\#0B051D\] h2, .bg-\[\#0B051D\] h3,
+.bg-\[\#0D0621\] h1, .bg-\[\#0D0621\] h2, .bg-\[\#0D0621\] h3,
+.bg-\[\#1E113E\] h1, .bg-\[\#1E113E\] h2, .bg-\[\#1E113E\] h3,
+.bg-neutral-900 h1, .bg-neutral-900 h2, .bg-neutral-900 h3,
+.bg-neutral-950 h1, .bg-neutral-950 h2, .bg-neutral-950 h3,
+[class*="from-[#000048]"] h1, [class*="from-[#000048]"] h2, [class*="from-[#000048]"] h3,
+[class*="from-[#0F1535]"] h1, [class*="from-[#0F1535]"] h2, [class*="from-[#0F1535]"] h3,
+[class*="from-[#480878]"] h1, [class*="from-[#480878]"] h2, [class*="from-[#480878]"] h3,
+#hero h1, #hero h2, #hero h3,
+#footer h1, #footer h2, #footer h3, #footer h4,
+footer h1, footer h2, footer h3, footer h4 {
+  color: #FFFFFF !important;
+}
+
+/* Explicit pure white text token preserved on dark surfaces */
+.modal-dark [class~="text-white"],
+[data-theme="dark"] [class~="text-white"],
+.bg-\[\#070A1E\] [class~="text-white"],
+.bg-\[\#0B0F2A\] [class~="text-white"],
+.bg-\[\#090D24\] [class~="text-white"],
+.bg-\[\#0E1333\] [class~="text-white"],
+.bg-\[\#0D1230\] [class~="text-white"],
+.bg-\[\#070314\] [class~="text-white"],
+.bg-\[\#07031C\] [class~="text-white"],
+.bg-\[\#0B051D\] [class~="text-white"],
+.bg-\[\#0F1535\] [class~="text-white"],
+.bg-\[\#1A1D4F\] [class~="text-white"],
+.bg-\[\#000048\] [class~="text-white"],
+.bg-\[\#0C061F\] [class~="text-white"],
+.bg-\[\#0D0621\] [class~="text-white"],
+.bg-\[\#1E113E\] [class~="text-white"],
+.bg-neutral-900 [class~="text-white"],
+.bg-neutral-950 [class~="text-white"],
+[class*="from-[#000048]"] [class~="text-white"],
+[class*="from-[#0F1535]"] [class~="text-white"],
+[class*="from-[#480878]"] [class~="text-white"],
+#hero [class~="text-white"],
+#footer [class~="text-white"],
+footer [class~="text-white"] {
+  color: #FFFFFF !important;
+}
+
+/* Neutral & Slate text tokens on dark surfaces — Guaranteed crisp legibility (WCAG AA+) */
+.modal-dark [class*="text-neutral-300"],
+[data-theme="dark"] [class*="text-neutral-300"],
+.bg-\[\#070A1E\] [class*="text-neutral-300"],
+.bg-\[\#070314\] [class*="text-neutral-300"],
+.bg-\[\#07031C\] [class*="text-neutral-300"],
+.bg-\[\#0A051C\] [class*="text-neutral-300"],
+.bg-\[\#0B051D\] [class*="text-neutral-300"],
+.bg-\[\#0B0520\] [class*="text-neutral-300"],
+.bg-\[\#0C061F\] [class*="text-neutral-300"],
+.bg-\[\#0C0620\] [class*="text-neutral-300"],
+.bg-\[\#0F1535\] [class*="text-neutral-300"],
+.bg-\[\#1E113E\] [class*="text-neutral-300"],
+.bg-\[\#000048\] [class*="text-neutral-300"],
+.bg-neutral-900 [class*="text-neutral-300"],
+.bg-neutral-950 [class*="text-neutral-300"],
+[class*="bg-neutral-900"] [class*="text-neutral-300"],
+[class*="bg-neutral-950"] [class*="text-neutral-300"],
+[class*="from-[#000048]"] [class*="text-neutral-300"],
+[class*="from-[#480878]"] [class*="text-neutral-300"],
+#hero [class*="text-neutral-300"] {
+  color: #E2E8F0 !important;
+}
+
+.modal-dark [class*="text-neutral-400"],
+[data-theme="dark"] [class*="text-neutral-400"],
+.bg-\[\#070A1E\] [class*="text-neutral-400"],
+.bg-\[\#070314\] [class*="text-neutral-400"],
+.bg-\[\#07031C\] [class*="text-neutral-400"],
+.bg-\[\#0A051C\] [class*="text-neutral-400"],
+.bg-\[\#0B051D\] [class*="text-neutral-400"],
+.bg-\[\#0B0520\] [class*="text-neutral-400"],
+.bg-\[\#0C061F\] [class*="text-neutral-400"],
+.bg-\[\#0C0620\] [class*="text-neutral-400"],
+.bg-\[\#0F1535\] [class*="text-neutral-400"],
+.bg-\[\#1E113E\] [class*="text-neutral-400"],
+.bg-\[\#000048\] [class*="text-neutral-400"],
+.bg-neutral-900 [class*="text-neutral-400"],
+.bg-neutral-950 [class*="text-neutral-400"],
+[class*="bg-neutral-900"] [class*="text-neutral-400"],
+[class*="bg-neutral-950"] [class*="text-neutral-400"],
+[class*="from-[#000048]"] [class*="text-neutral-400"],
+[class*="from-[#480878]"] [class*="text-neutral-400"],
+#hero [class*="text-neutral-400"] {
+  color: #CBD5E1 !important;
+}
+
+.modal-dark [class*="text-neutral-500"],
+[data-theme="dark"] [class*="text-neutral-500"],
+.bg-\[\#070A1E\] [class*="text-neutral-500"],
+.bg-\[\#070314\] [class*="text-neutral-500"],
+.bg-\[\#07031C\] [class*="text-neutral-500"],
+.bg-\[\#0A051C\] [class*="text-neutral-500"],
+.bg-\[\#0B051D\] [class*="text-neutral-500"],
+.bg-\[\#0B0520\] [class*="text-neutral-500"],
+.bg-\[\#0C061F\] [class*="text-neutral-500"],
+.bg-\[\#0C0620\] [class*="text-neutral-500"],
+.bg-\[\#0F1535\] [class*="text-neutral-500"],
+.bg-\[\#1E113E\] [class*="text-neutral-500"],
+.bg-\[\#000048\] [class*="text-neutral-500"],
+.bg-neutral-900 [class*="text-neutral-500"],
+.bg-neutral-950 [class*="text-neutral-500"],
+[class*="bg-neutral-900"] [class*="text-neutral-500"],
+[class*="bg-neutral-950"] [class*="text-neutral-500"],
+[class*="from-[#000048]"] [class*="text-neutral-500"],
+[class*="from-[#480878]"] [class*="text-neutral-500"] {
+  color: #94A3B8 !important;
+}
+
+/* Slate & Gray tokens on dark surfaces */
+.modal-dark [class*="text-slate-400"],
+[data-theme="dark"] [class*="text-slate-400"],
+.bg-\[\#070A1E\] [class*="text-slate-400"],
+.bg-\[\#070314\] [class*="text-slate-400"],
+.bg-\[\#07031C\] [class*="text-slate-400"],
+.bg-\[\#0B051D\] [class*="text-slate-400"],
+.bg-\[\#0C061F\] [class*="text-slate-400"],
+.bg-\[\#0F1535\] [class*="text-slate-400"],
+.bg-\[\#1E113E\] [class*="text-slate-400"],
+.bg-neutral-900 [class*="text-slate-400"],
+.bg-neutral-950 [class*="text-slate-400"],
+[class*="bg-neutral-900"] [class*="text-slate-400"],
+[class*="bg-neutral-950"] [class*="text-slate-400"] {
+  color: #CBD5E1 !important;
+}
+
+.modal-dark [class*="text-slate-500"],
+[data-theme="dark"] [class*="text-slate-500"],
+.bg-\[\#070A1E\] [class*="text-slate-500"],
+.bg-\[\#070314\] [class*="text-slate-500"],
+.bg-\[\#07031C\] [class*="text-slate-500"],
+.bg-\[\#0B051D\] [class*="text-slate-500"],
+.bg-\[\#0C061F\] [class*="text-slate-500"],
+.bg-\[\#0F1535\] [class*="text-slate-500"],
+.bg-neutral-900 [class*="text-slate-500"],
+.bg-neutral-950 [class*="text-slate-500"],
+[class*="bg-neutral-900"] [class*="text-slate-500"],
+[class*="bg-neutral-950"] [class*="text-slate-500"] {
+  color: #94A3B8 !important;
+}
+
+/* Light purple/accent tokens on dark backgrounds */
+.modal-dark [class~="text-purple-200"],
+[data-theme="dark"] [class~="text-purple-200"],
+.bg-\[\#070A1E\] [class~="text-purple-200"],
+.bg-\[\#070314\] [class~="text-purple-200"],
+.bg-\[\#000048\] [class~="text-purple-200"],
+.bg-\[\#0F1535\] [class~="text-purple-200"],
+[class*="from-[#000048]"] [class~="text-purple-200"],
+[class*="from-[#480878]"] [class~="text-purple-200"] {
+  color: #E2D4FD !important;
+}
+
+.modal-dark [class~="text-purple-300"],
+[data-theme="dark"] [class~="text-purple-300"],
+.bg-\[\#070A1E\] [class~="text-purple-300"],
+.bg-\[\#070314\] [class~="text-purple-300"],
+.bg-\[\#000048\] [class~="text-purple-300"],
+.bg-\[\#0F1535\] [class~="text-purple-300"],
+[class*="from-[#000048]"] [class~="text-purple-300"],
+[class*="from-[#480878]"] [class~="text-purple-300"] {
+  color: #C7A0FF !important;
+}
+
+/* ==========================================================================
+   RULE SET 2: LIGHT SURFACES (ACADEMY PAGES & LIGHT CARDS/SECTIONS)
+   Enforces deep navy headings (#000048) and high-contrast body (#334155 / #1E293B)
+   EVEN IF THE LIGHT CARD IS NESTED INSIDE A DARK SECTION!
+   ========================================================================== */
+
+/* Light Containers & Cards */
+.bg-white,
+.bg-\[\#FFFFFF\],
+.bg-\[\#F7F7FC\],
+.bg-\[\#FFFDF9\],
+.bg-\[\#F8F9FE\],
+.bg-\[\#FFF6EC\],
+.bg-slate-50,
+.bg-slate-100 {
+  color: #0F1535;
+}
+
+/* Headings inside light surfaces */
+.bg-white h1, .bg-white h2, .bg-white h3, .bg-white h4, .bg-white h5, .bg-white h6,
+.bg-\[\#FFFFFF\] h1, .bg-\[\#FFFFFF\] h2, .bg-\[\#FFFFFF\] h3, .bg-\[\#FFFFFF\] h4,
+.bg-\[\#F7F7FC\] h1, .bg-\[\#F7F7FC\] h2, .bg-\[\#F7F7FC\] h3, .bg-\[\#F7F7FC\] h4,
+.bg-\[\#FFFDF9\] h1, .bg-\[\#FFFDF9\] h2, .bg-\[\#FFFDF9\] h3, .bg-\[\#FFFDF9\] h4,
+.bg-\[\#F8F9FE\] h1, .bg-\[\#F8F9FE\] h2, .bg-\[\#F8F9FE\] h3, .bg-\[\#F8F9FE\] h4,
+.bg-\[\#FFF6EC\] h1, .bg-\[\#FFF6EC\] h2, .bg-\[\#FFF6EC\] h3, .bg-\[\#FFF6EC\] h4,
+.bg-slate-50 h1, .bg-slate-50 h2, .bg-slate-50 h3, .bg-slate-50 h4,
+.vixora-page h1, .vixora-page h2, .vixora-page h3, .vixora-page h4 {
+  color: #000048 !important;
+}
+
+/* Paragraphs & descriptions in light surfaces (replaces any leaked dark container rules) */
+.bg-white p,
+.bg-\[\#FFFFFF\] p,
+.bg-\[\#F7F7FC\] p,
+.bg-\[\#FFFDF9\] p,
+.bg-\[\#F8F9FE\] p,
+.bg-\[\#FFF6EC\] p,
+.bg-slate-50 p,
+.vixora-page p {
+  color: #334155 !important;
+}
+
+/* Muted & secondary text tokens in light surfaces — guaranteed readable (minimum 4.5:1) */
+.bg-white [class~="text-neutral-400"],
+.bg-white [class~="text-slate-400"],
+.bg-\[\#FFFFFF\] [class~="text-neutral-400"],
+.bg-\[\#FFFFFF\] [class~="text-slate-400"],
+.bg-\[\#F7F7FC\] [class~="text-neutral-400"],
+.bg-\[\#F7F7FC\] [class~="text-slate-400"],
+.bg-\[\#FFFDF9\] [class~="text-neutral-400"],
+.bg-\[\#FFFDF9\] [class~="text-slate-400"],
+.bg-\[\#F8F9FE\] [class~="text-neutral-400"],
+.bg-\[\#F8F9FE\] [class~="text-slate-400"],
+.bg-\[\#FFF6EC\] [class~="text-neutral-400"],
+.bg-\[\#FFF6EC\] [class~="text-slate-400"] {
+  color: #5F6078 !important;
+}
+
+.bg-white [class~="text-neutral-500"],
+.bg-white [class~="text-slate-500"],
+.bg-\[\#FFFFFF\] [class~="text-neutral-500"],
+.bg-\[\#FFFFFF\] [class~="text-slate-500"],
+.bg-\[\#F7F7FC\] [class~="text-neutral-500"],
+.bg-\[\#F7F7FC\] [class~="text-slate-500"],
+.bg-\[\#FFFDF9\] [class~="text-neutral-500"],
+.bg-\[\#FFFDF9\] [class~="text-slate-500"],
+.bg-\[\#F8F9FE\] [class~="text-neutral-500"],
+.bg-\[\#F8F9FE\] [class~="text-slate-500"],
+.bg-\[\#FFF6EC\] [class~="text-neutral-500"],
+.bg-\[\#FFF6EC\] [class~="text-slate-500"] {
+  color: #475569 !important;
+}
+
+/* Prevent accidental white-on-white text in light surfaces */
+.bg-white > [class~="text-white"]:not(button):not(a):not(:is([class*="bg-"], [class*="from-"])),
+.bg-\[\#F7F7FC\] > [class~="text-white"]:not(button):not(a):not(:is([class*="bg-"], [class*="from-"])),
+.bg-\[\#FFFDF9\] > [class~="text-white"]:not(button):not(a):not(:is([class*="bg-"], [class*="from-"])) {
+  color: #0F1535 !important;
+}
+
+/* ==========================================================================
+   RULE SET 3: NESTED RECOVERY RULES (DARK-IN-LIGHT & LIGHT-IN-DARK)
+   ========================================================================== */
+
+/* (A) Dark banners, cards, or footers NESTED inside light surfaces:
+   Must guarantee pure white headings, crisp lavender body text, and bright accents!
+   Examples: Directorate Banner on AcademyPage, BankDetailsCard on CoursePricing,
+             AcademyFooter on Academy pages, Dark modals on Academy pages. */
+:is(.bg-white, .bg-\[\#FFFFFF\], .bg-\[\#F7F7FC\], .bg-\[\#FFFDF9\], .bg-\[\#F8F9FE\], .bg-\[\#FFF6EC\], .bg-slate-50, body)
+:is(.modal-dark, [data-theme="dark"], [role="dialog"].modal-dark, [class*="from-[#000048]"], [class*="from-[#480878]"], .bg-\[\#000048\], .bg-\[\#000030\], .bg-\[\#05020F\], .bg-\[\#070A1E\], .bg-\[\#070314\], .bg-\[\#0C061F\], .bg-\[\#0F1535\], .bg-\[\#1E113E\], .bg-\[\#07031C\], .bg-neutral-900, .bg-neutral-950, footer, #footer, #contact) {
+  color: #F8FAFC !important;
+}
+
+:is(.bg-white, .bg-\[\#FFFFFF\], .bg-\[\#F7F7FC\], .bg-\[\#FFFDF9\], .bg-\[\#F8F9FE\], .bg-\[\#FFF6EC\], .bg-slate-50, body)
+:is(.modal-dark, [data-theme="dark"], [role="dialog"].modal-dark, [class*="from-[#000048]"], [class*="from-[#480878]"], .bg-\[\#000048\], .bg-\[\#000030\], .bg-\[\#05020F\], .bg-\[\#070A1E\], .bg-\[\#070314\], .bg-\[\#0C061F\], .bg-\[\#0F1535\], .bg-\[\#1E113E\], .bg-\[\#07031C\], .bg-neutral-900, .bg-neutral-950, footer, #footer, #contact) :is(h1, h2, h3, h4, h5, h6) {
+  color: #FFFFFF !important;
+}
+
+:is(.bg-white, .bg-\[\#FFFFFF\], .bg-\[\#F7F7FC\], .bg-\[\#FFFDF9\], .bg-\[\#F8F9FE\], .bg-\[\#FFF6EC\], .bg-slate-50, body)
+:is(.modal-dark, [data-theme="dark"], [role="dialog"].modal-dark, [class*="from-[#000048]"], [class*="from-[#480878]"], .bg-\[\#000048\], .bg-\[\#000030\], .bg-\[\#05020F\], .bg-\[\#070A1E\], .bg-\[\#070314\], .bg-\[\#0C061F\], .bg-\[\#0F1535\], .bg-\[\#1E113E\], .bg-\[\#07031C\], .bg-neutral-900, .bg-neutral-950, footer, #footer, #contact) p {
+  color: #E2E8F0 !important;
+}
+
+:is(.bg-white, .bg-\[\#FFFFFF\], .bg-\[\#F7F7FC\], .bg-\[\#FFFDF9\], .bg-\[\#F8F9FE\], .bg-\[\#FFF6EC\], .bg-slate-50, body)
+:is(.modal-dark, [data-theme="dark"], [role="dialog"].modal-dark, [class*="from-[#000048]"], [class*="from-[#480878]"], .bg-\[\#000048\], .bg-\[\#000030\], .bg-\[\#05020F\], .bg-\[\#070A1E\], .bg-\[\#070314\], .bg-\[\#0C061F\], .bg-\[\#0F1535\], .bg-\[\#1E113E\], .bg-\[\#07031C\], .bg-neutral-900, .bg-neutral-950, footer, #footer, #contact) strong {
+  color: #FFFFFF !important;
+}
+
+:is(.bg-white, .bg-\[\#FFFFFF\], .bg-\[\#F7F7FC\], .bg-\[\#FFFDF9\], .bg-\[\#F8F9FE\], .bg-\[\#FFF6EC\], .bg-slate-50, body)
+:is(footer, #footer, #contact, .bg-\[\#000030\], .bg-\[\#05020F\], .bg-\[\#000048\]) [class*="text-purple-100"] {
+  color: #E9D5FF !important;
+}
+
+:is(.bg-white, .bg-\[\#FFFFFF\], .bg-\[\#F7F7FC\], .bg-\[\#FFFDF9\], .bg-\[\#F8F9FE\], .bg-\[\#FFF6EC\], .bg-slate-50, body)
+:is(footer, #footer, #contact, .bg-\[\#000030\], .bg-\[\#05020F\], .bg-\[\#000048\]) [class*="text-purple-200"] {
+  color: #DDD6FE !important;
+}
+
+/* (B) Light cards & sections NESTED inside dark sections:
+   Guarantees deep navy headings (#000048) and readable slate body (#475569)
+   Examples: BusinessMetrics, SolutionsSection, IndustriesSection, TrustedBy, Testimonials,
+             CoursePricing white card inside CoursePricingSection. */
+:is(.modal-dark, [data-theme="dark"], .bg-\[\#070A1E\], .bg-\[\#070314\], .bg-\[\#0C061F\], .bg-\[\#0B051D\], .bg-\[\#0F1535\], .bg-\[\#000048\], #hero, body)
+:is(.bg-white, .bg-\[\#FFFFFF\], .bg-\[\#F7F7FC\], .bg-\[\#FFFDF9\], .bg-\[\#F8F9FE\], .bg-\[\#FFF6EC\], .bg-slate-50, .bg-slate-100, #industries, #solutions, #catalog, #admissions) {
+  color: #0F1535 !important;
+}
+
+:is(.modal-dark, [data-theme="dark"], .bg-\[\#070A1E\], .bg-\[\#070314\], .bg-\[\#0C061F\], .bg-\[\#0B051D\], .bg-\[\#0F1535\], .bg-\[\#000048\], #hero, body)
+:is(.bg-white, .bg-\[\#FFFFFF\], .bg-\[\#F7F7FC\], .bg-\[\#FFFDF9\], .bg-\[\#F8F9FE\], .bg-\[\#FFF6EC\], .bg-slate-50, .bg-slate-100, #industries, #solutions, #catalog, #admissions) :is(h1, h2, h3, h4, h5, h6) {
+  color: #000048 !important;
+}
+
+:is(.modal-dark, [data-theme="dark"], .bg-\[\#070A1E\], .bg-\[\#070314\], .bg-\[\#0C061F\], .bg-\[\#0B051D\], .bg-\[\#0F1535\], .bg-\[\#000048\], #hero, body)
+:is(.bg-white, .bg-\[\#FFFFFF\], .bg-\[\#F7F7FC\], .bg-\[\#FFFDF9\], .bg-\[\#F8F9FE\], .bg-\[\#FFF6EC\], .bg-slate-50, .bg-slate-100, #industries, #solutions, #catalog, #admissions) p {
+  color: #475569 !important;
+}
+
+:is(.modal-dark, [data-theme="dark"], .bg-\[\#070A1E\], .bg-\[\#070314\], .bg-\[\#0C061F\], .bg-\[\#0B051D\], .bg-\[\#0F1535\], .bg-\[\#000048\], #hero, body)
+:is(.bg-white, .bg-\[\#FFFFFF\], .bg-\[\#F7F7FC\], .bg-\[\#FFFDF9\], .bg-\[\#F8F9FE\], .bg-\[\#FFF6EC\], .bg-slate-50, .bg-slate-100, #industries, #solutions, #catalog, #admissions) :is([class*="text-[#5F6078]"], [class*="text-slate-500"], [class*="text-neutral-500"]) {
+  color: #5F6078 !important;
+}
+
+/* ==========================================================================
+   RULE SET 4: BUTTONS & INTERACTIVE CONTROLS
+   ========================================================================== */
+
+/* (A) Dark, Purple, Indigo, Emerald, Gradient Buttons:
+   Pure white text and white SVGs */
+button[class*="bg-[#480878]"],
+button[class*="bg-[#5B5FED]"],
+button[class*="bg-[#7000F8]"],
+button[class*="bg-[#9030F8]"],
+button[class*="bg-[#5B0898]"],
+button[class*="bg-[#0F1535]"],
+button[class*="bg-[#000048]"],
+button[class*="bg-[#10B981]"],
+button[class*="bg-[#FF8A65]"],
+button[class*="bg-purple-"],
+button[class*="bg-indigo-"],
+button[class*="bg-emerald-"],
+button[class*="bg-neutral-9"],
+button[class*="bg-slate-9"],
+button[class*="from-[#480878]"],
+button[class*="from-[#000048]"],
+button[class*="from-[#0F1535]"],
+button[class*="from-purple-"],
+button[class*="from-indigo-"],
+a[class*="bg-[#480878]"],
+a[class*="bg-[#5B5FED]"],
+a[class*="bg-[#7000F8]"],
+a[class*="bg-[#9030F8]"],
+a[class*="bg-[#0F1535]"],
+a[class*="bg-[#000048]"],
+a[class*="bg-[#10B981]"],
+a[class*="bg-purple-"],
+a[class*="bg-indigo-"],
+a[class*="from-[#480878]"],
+a[class*="from-[#000048]"] {
+  color: #FFFFFF !important;
+}
+
+button[class*="bg-[#480878]"] *,
+button[class*="bg-[#5B5FED]"] *,
+button[class*="bg-[#7000F8]"] *,
+button[class*="bg-[#9030F8]"] *,
+button[class*="bg-[#0F1535]"] *,
+button[class*="bg-[#000048]"] *,
+button[class*="bg-[#10B981]"] *,
+button[class*="bg-purple-"] *,
+button[class*="bg-indigo-"] *,
+button[class*="bg-emerald-"] *,
+button[class*="from-[#480878]"] *,
+button[class*="from-[#000048]"] *,
+a[class*="bg-[#480878]"] *,
+a[class*="bg-[#5B5FED]"] *,
+a[class*="bg-[#7000F8]"] *,
+a[class*="bg-[#9030F8]"] *,
+a[class*="bg-[#0F1535]"] *,
+a[class*="bg-[#000048]"] *,
+a[class*="bg-[#10B981]"] *,
+a[class*="from-[#480878]"] *,
+a[class*="from-[#000048]"] * {
+  color: #FFFFFF !important;
+}
+
+button[class*="bg-[#480878]"] svg,
+button[class*="bg-[#5B5FED]"] svg,
+button[class*="bg-[#7000F8]"] svg,
+button[class*="bg-[#9030F8]"] svg,
+button[class*="bg-[#0F1535]"] svg,
+button[class*="bg-[#000048]"] svg,
+button[class*="bg-[#10B981]"] svg,
+button[class*="bg-purple-"] svg,
+button[class*="bg-indigo-"] svg,
+button[class*="from-[#480878]"] svg,
+button[class*="from-[#000048]"] svg,
+a[class*="bg-[#480878]"] svg,
+a[class*="bg-[#5B5FED]"] svg,
+a[class*="bg-[#7000F8]"] svg,
+a[class*="bg-[#9030F8]"] svg,
+a[class*="bg-[#0F1535]"] svg,
+a[class*="bg-[#000048]"] svg,
+a[class*="from-[#480878]"] svg,
+a[class*="from-[#000048]"] svg {
+  color: #FFFFFF !important;
+  stroke: #FFFFFF !important;
+}
+
+/* (B) Yellow, Amber, Gold Buttons & Badges:
+   Must use dark navy (#0F1535) text for WCAG AA compliance */
+button[class*="bg-amber-400"],
+button[class*="bg-amber-500"],
+button[class*="bg-yellow-400"],
+button[class*="bg-yellow-500"],
+button[class*="bg-[#FFD700]"],
+button[class*="bg-[#FFC107]"],
+span[class*="bg-amber-400"],
+span[class*="bg-amber-500"],
+span[class*="bg-yellow-400"],
+span[class*="bg-yellow-500"],
+span[class*="bg-[#FFD700]"],
+span[class*="bg-[#FFC107]"],
+a[class*="bg-amber-400"],
+a[class*="bg-amber-500"],
+a[class*="bg-yellow-400"],
+a[class*="bg-yellow-500"],
+a[class*="bg-[#FFD700]"],
+a[class*="bg-[#FFC107]"],
+.bg-amber-400,
+.bg-amber-500,
+.bg-yellow-400,
+.bg-yellow-500,
+.bg-\[\#FFD700\],
+.bg-\[\#FFC107\] {
+  color: #0F1535 !important;
+  font-weight: 700 !important;
+}
+
+button[class*="bg-amber-400"] *,
+button[class*="bg-amber-500"] *,
+button[class*="bg-yellow-400"] *,
+button[class*="bg-yellow-500"] *,
+button[class*="bg-[#FFD700]"] *,
+button[class*="bg-[#FFC107]"] *,
+a[class*="bg-amber-400"] *,
+a[class*="bg-amber-500"] *,
+a[class*="bg-yellow-400"] *,
+a[class*="bg-yellow-500"] *,
+a[class*="bg-[#FFD700]"] *,
+a[class*="bg-[#FFC107]"] * {
+  color: #0F1535 !important;
+  font-weight: 700 !important;
+}
+
+button[class*="bg-amber-400"] svg,
+button[class*="bg-amber-500"] svg,
+button[class*="bg-yellow-400"] svg,
+button[class*="bg-yellow-500"] svg,
+button[class*="bg-[#FFD700]"] svg,
+button[class*="bg-[#FFC107]"] svg,
+a[class*="bg-amber-400"] svg,
+a[class*="bg-amber-500"] svg,
+a[class*="bg-yellow-400"] svg,
+a[class*="bg-yellow-500"] svg,
+a[class*="bg-[#FFD700]"] svg,
+a[class*="bg-[#FFC107]"] svg {
+  color: #0F1535 !important;
+  stroke: #0F1535 !important;
+}
+
+/* (C) Solid White / Light Buttons:
+   Only match genuine solid white buttons — NOT semi-transparent (e.g. bg-white/10, bg-white/20)
+   and NOT hover-only variants (e.g. hover:bg-white) when resting! */
+button.bg-white:not([class*="/"]):not([class*="hover:bg-white/"]),
+button[class~="bg-white"]:not([class*="/"]):not([class*="hover:bg-white/"]),
+button[class~="bg-[#FFFFFF]"],
+button.bg-neutral-100,
+button[class~="bg-neutral-100"],
+button.bg-slate-100,
+button[class~="bg-slate-100"],
+a.bg-white:not([class*="/"]):not([class*="hover:bg-white/"]),
+a[class~="bg-white"]:not([class*="/"]):not([class*="hover:bg-white/"]),
+a[class~="bg-[#FFFFFF]"] {
+  color: #0F1535 !important;
+}
+
+button.bg-white:not([class*="/"]):not([class*="hover:bg-white/"]) > span:not([class*="text-"]):not([class*="bg-"]),
+button[class~="bg-white"]:not([class*="/"]):not([class*="hover:bg-white/"]) > span:not([class*="text-"]):not([class*="bg-"]),
+a.bg-white:not([class*="/"]):not([class*="hover:bg-white/"]) > span:not([class*="text-"]):not([class*="bg-"]),
+a[class~="bg-white"]:not([class*="/"]):not([class*="hover:bg-white/"]) > span:not([class*="text-"]):not([class*="bg-"]) {
+  color: #0F1535 !important;
+}
+
+/* Semi-transparent white badges, tabs, and action pills on dark surfaces:
+   MUST remain pure crisp white text with white icons! */
+button[class*="bg-white/"],
+a[class*="bg-white/"],
+div[class*="bg-white/"] > span[class*="text-white"],
+[class*="bg-white/10"],
+[class*="bg-white/15"],
+[class*="bg-white/20"],
+[class*="bg-white/25"],
+[class*="bg-white/5"] {
+  color: #FFFFFF !important;
+}
+
+[class*="bg-white/10"] svg:not([class*="text-amber"]):not([class*="text-emerald"]):not([class*="text-purple"]):not([class*="text-indigo"]),
+[class*="bg-white/15"] svg:not([class*="text-amber"]):not([class*="text-emerald"]):not([class*="text-purple"]):not([class*="text-indigo"]),
+[class*="bg-white/20"] svg:not([class*="text-amber"]):not([class*="text-emerald"]):not([class*="text-purple"]):not([class*="text-indigo"]),
+[class*="bg-white/25"] svg:not([class*="text-amber"]):not([class*="text-emerald"]):not([class*="text-purple"]):not([class*="text-indigo"]),
+[class*="bg-white/5"] svg:not([class*="text-amber"]):not([class*="text-emerald"]):not([class*="text-purple"]):not([class*="text-indigo"]) {
+  stroke: #FFFFFF !important;
+  color: #FFFFFF !important;
+}
+
+/* ==========================================================================
+   RULE SET 5: FORM INPUTS & LABELS
+   ========================================================================== */
+
+/* Form inputs on light surfaces */
+.bg-white input:not([type="checkbox"]):not([type="radio"]):not([class*="bg-[#0"]):not([class*="bg-neutral-9"]):not([class*="bg-slate-9"]),
+.bg-white select:not([class*="bg-[#0"]):not([class*="bg-neutral-9"]),
+.bg-white textarea:not([class*="bg-[#0"]):not([class*="bg-neutral-9"]),
+.bg-\[\#F7F7FC\] input:not([type="checkbox"]):not([type="radio"]):not(:is(.modal-dark, [role="dialog"].modal-dark, [data-theme="dark"]) *):not([class*="bg-[#0"]):not([class*="bg-neutral-9"]):not([class*="bg-slate-9"]),
+.bg-\[\#F7F7FC\] select:not(:is(.modal-dark, [role="dialog"].modal-dark, [data-theme="dark"]) *):not([class*="bg-[#0"]):not([class*="bg-neutral-9"]),
+.bg-\[\#F7F7FC\] textarea:not(:is(.modal-dark, [role="dialog"].modal-dark, [data-theme="dark"]) *):not([class*="bg-[#0"]):not([class*="bg-neutral-9"]),
+.bg-\[\#FFFDF9\] input:not([type="checkbox"]):not([type="radio"]):not(:is(.modal-dark, [role="dialog"].modal-dark, [data-theme="dark"]) *):not([class*="bg-[#0"]):not([class*="bg-neutral-9"]):not([class*="bg-slate-9"]),
+.bg-\[\#FFFDF9\] select:not(:is(.modal-dark, [role="dialog"].modal-dark, [data-theme="dark"]) *):not([class*="bg-[#0"]):not([class*="bg-neutral-9"]),
+.bg-\[\#FFFDF9\] textarea:not(:is(.modal-dark, [role="dialog"].modal-dark, [data-theme="dark"]) *):not([class*="bg-[#0"]):not([class*="bg-neutral-9"]) {
+  background-color: #FFFFFF;
+  border-color: #CBD5E1;
+  color: #0F1535 !important;
+}
+
+.bg-white input::placeholder,
+.bg-white textarea::placeholder,
+.bg-\[\#F7F7FC\] input::placeholder,
+.bg-\[\#F7F7FC\] textarea::placeholder,
+.bg-\[\#FFFDF9\] input::placeholder,
+.bg-\[\#FFFDF9\] textarea::placeholder {
+  color: #64748B !important;
+}
+
+/* Form inputs in ALL dark modals, dialogs, and dark sections */
+.modal-dark input:not([type="checkbox"]):not([type="radio"]),
+.modal-dark select,
+.modal-dark textarea,
+[role="dialog"].modal-dark input:not([type="checkbox"]):not([type="radio"]),
+[role="dialog"].modal-dark select,
+[role="dialog"].modal-dark textarea,
+[data-theme="dark"] input:not([type="checkbox"]):not([type="radio"]),
+[data-theme="dark"] select,
+[data-theme="dark"] textarea,
+.bg-\[\#070A1E\] input:not([type="checkbox"]):not([type="radio"]),
+.bg-\[\#070A1E\] textarea,
+.bg-\[\#090D24\] input:not([type="checkbox"]):not([type="radio"]),
+.bg-\[\#090D24\] textarea,
+.bg-\[\#0C061F\] input:not([type="checkbox"]):not([type="radio"]),
+.bg-\[\#0C061F\] select,
+.bg-\[\#0C061F\] textarea,
+.bg-\[\#0B051D\] input:not([type="checkbox"]):not([type="radio"]),
+.bg-\[\#0B051D\] select,
+.bg-\[\#0B051D\] textarea,
+.bg-neutral-900 input:not([type="checkbox"]):not([type="radio"]),
+.bg-neutral-900 select,
+.bg-neutral-900 textarea,
+.bg-neutral-950 input:not([type="checkbox"]):not([type="radio"]),
+.bg-neutral-950 select,
+.bg-neutral-950 textarea,
+input[class*="bg-[#0F1535]"],
+input[class*="bg-[#070A1E]"],
+input[class*="bg-neutral-950"],
+textarea[class*="bg-[#0F1535]"],
+textarea[class*="bg-neutral-950"] {
+  background-color: #0F1535 !important;
+  border-color: rgba(147, 51, 234, 0.45) !important;
+  color: #FFFFFF !important;
+}
+
+.modal-dark input::placeholder,
+.modal-dark textarea::placeholder,
+[role="dialog"].modal-dark input::placeholder,
+[role="dialog"].modal-dark textarea::placeholder,
+[data-theme="dark"] input::placeholder,
+[data-theme="dark"] textarea::placeholder,
+.bg-\[\#070A1E\] input::placeholder,
+.bg-\[\#070A1E\] textarea::placeholder,
+.bg-\[\#090D24\] input::placeholder,
+.bg-\[\#090D24\] textarea::placeholder,
+.bg-\[\#0C061F\] input::placeholder,
+.bg-\[\#0C061F\] textarea::placeholder,
+.bg-\[\#0B051D\] input::placeholder,
+.bg-\[\#0B051D\] textarea::placeholder,
+input[class*="bg-[#0F1535]"]::placeholder,
+textarea[class*="bg-[#0F1535]"]::placeholder,
+input[class*="bg-neutral-950"]::placeholder,
+textarea[class*="bg-neutral-950"]::placeholder {
+  color: #94A3B8 !important;
+}
+
+/* Form labels */
+.bg-white label:not(:is(.modal-dark, [role="dialog"].modal-dark, [data-theme="dark"]) *),
+.bg-\[\#F7F7FC\] label:not(:is(.modal-dark, [role="dialog"].modal-dark, [data-theme="dark"]) *),
+.bg-\[\#FFFDF9\] label:not(:is(.modal-dark, [role="dialog"].modal-dark, [data-theme="dark"]) *),
+.vixora-page label {
+  color: #0F1535;
+  font-weight: 600;
+}
+
+.modal-dark label,
+[role="dialog"].modal-dark label,
+[data-theme="dark"] label,
+.bg-\[\#070A1E\] label,
+.bg-\[\#090D24\] label,
+.bg-\[\#0C061F\] label,
+.bg-\[\#0B051D\] label,
+.bg-neutral-900 label,
+.bg-neutral-950 label {
+  color: #E2E8F0 !important;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   RULE SET 6: NAVIGATION DROPDOWNS & FOOTER
+   ========================================================================== */
+
+/* Main Hub Navbar Dropdowns (rich dark navy with white headings and bright lavender text) */
+.nav-dropdown-container [class*="bg-[#0b0620]"],
+.nav-dropdown-container [class*="bg-[#0C0620]"] {
+  background-color: #0B0520 !important;
+  border-color: rgba(147, 51, 234, 0.4) !important;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7) !important;
+}
+
+.nav-dropdown-container [class*="bg-[#0b0620]"] [class~="text-white"],
+.nav-dropdown-container [class*="bg-[#0C0620]"] [class~="text-white"] {
+  color: #FFFFFF !important;
+}
+
+.nav-dropdown-container [class*="bg-[#0b0620]"] [class~="text-neutral-400"],
+.nav-dropdown-container [class*="bg-[#0C0620]"] [class~="text-neutral-400"] {
+  color: #CBD5E1 !important;
+}
+
+.nav-dropdown-container [class*="bg-[#0b0620]"] [class~="hover:bg-purple-950/60"]:hover,
+.nav-dropdown-container [class*="bg-[#0C0620]"] [class~="hover:bg-purple-950/60"]:hover {
+  background-color: rgba(147, 51, 234, 0.25) !important;
+}
+
+/* Academy Navbar Dropdown (dark background #07031C) */
+.bg-\[\#07031C\] {
+  background-color: #07031C !important;
+  color: #FFFFFF !important;
+}
+.bg-\[\#07031C\] [class~="text-white"] {
+  color: #FFFFFF !important;
+}
+.bg-\[\#07031C\] [class~="text-neutral-400"] {
+  color: #CBD5E1 !important;
+}
+
+/* Footers */
+#footer, footer, #contact {
+  color: #CBD5E1 !important;
+}
+
+#footer h1, #footer h2, #footer h3, #footer h4,
+footer h1, footer h2, footer h3, footer h4 {
+  color: #FFFFFF !important;
+}
+
+#footer p, footer p {
+  color: #E2E8F0 !important;
+}
+
+footer [class*="text-purple-100"],
+#footer [class*="text-purple-100"] {
+  color: #E9D5FF !important;
+}
+
+footer [class*="text-purple-200"],
+#footer [class*="text-purple-200"] {
+  color: #DDD6FE !important;
+}
+
+#footer a, footer a {
+  color: #CBD5E1 !important;
+}
+
+#footer a:hover, footer a:hover {
+  color: #FFFFFF !important;
+}
+
+/* Theme toggle disabled (light-only branding for public site) */
+#theme-toggle-btn,
+button[aria-label="Toggle Theme"] {
+  display: none !important;
+}

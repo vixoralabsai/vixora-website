@@ -1,0 +1,6 @@
+{
+  "name": "Vixora Digital Hub",
+  "description": "Build Smarter Businesses with Software, AI & Automation. Digital headquarters for custom software development, AI solutions, branding, media production, and Vixora Academy.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

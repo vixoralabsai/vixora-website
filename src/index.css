@@ -1,0 +1,213 @@
+@import "tailwindcss";
+
+/*
+ * VIXORA DIGITAL HUB — LOCKED BRAND COLOR SYSTEM
+ *
+ * Public website direction: Deep Navy + Rich Purple + Vibrant Violet + White.
+ * Yellow/gold is not a core brand color. Green is reserved for functional
+ * WhatsApp/status indicators where needed.
+ */
+
+@theme {
+  --color-vixora-navy: #0F1535;
+  --color-vixora-navy-dark: #070A1E;
+  --color-vixora-purple: #5B5FED;
+  --color-vixora-purple-dark: #480878;
+  --color-vixora-violet: #9030F8;
+  --color-vixora-electric: #7000F8;
+  --color-vixora-surface: #F7F7FC;
+  --color-vixora-border: #E5E5F0;
+  --color-vixora-muted: #5F6078;
+  --color-vixora-dark: #08082F;
+  --color-vixora-accent-gold: #FFD700;
+
+  /* Slate tokens for high-contrast text and solid buttons */
+  --color-slate-100: #F1F5F9;
+  --color-slate-200: #E2E8F0;
+  --color-slate-300: #CBD5E1;
+  --color-slate-400: #94A3B8;
+  --color-slate-500: #64748B;
+  --color-slate-900: #0F172A;
+  --color-slate-950: #020617;
+
+  /* Standard neutral tokens respecting dark vs light semantics */
+  --color-neutral-50: #FFFFFF;
+  --color-neutral-100: #F7F7FC;
+  --color-neutral-200: #E5E5F0;
+  --color-neutral-300: #CBD5E1;
+  --color-neutral-400: #94A3B8;
+  --color-neutral-500: #64748B;
+  --color-neutral-600: #475569;
+  --color-neutral-700: #334155;
+  --color-neutral-800: #1E293B;
+  --color-neutral-850: #10142E;
+  --color-neutral-900: #0F1535;
+  --color-neutral-950: #070A1E;
+
+  /* Legacy accent compatibility. New components should use vixora-* tokens. */
+  --color-blue-300: #C7A0FF;
+  --color-blue-400: #9030F8;
+  --color-blue-500: #7000F8;
+  --color-blue-600: #5B5FED;
+  --color-blue-700: #0F1535;
+  --color-indigo-300: #C7A0FF;
+  --color-indigo-400: #9030F8;
+  --color-indigo-500: #7000F8;
+  --color-indigo-600: #5B5FED;
+  --color-indigo-700: #0F1535;
+  --color-purple-300: #C7A0FF;
+  --color-purple-400: #9030F8;
+  --color-purple-500: #7000F8;
+  --color-purple-600: #5B5FED;
+  --color-purple-700: #480878;
+  --color-purple-800: #320B58;
+  --color-purple-900: #1E113E;
+  --color-purple-950: #0F0724;
+  --color-violet-300: #C7A0FF;
+  --color-violet-400: #9030F8;
+  --color-violet-500: #7000F8;
+  --color-violet-600: #5B5FED;
+  --color-violet-700: #0F1535;
+  --color-fuchsia-300: #C7A0FF;
+  --color-fuchsia-400: #9030F8;
+  --color-fuchsia-500: #7000F8;
+  --color-fuchsia-600: #5B5FED;
+  --color-cyan-300: #C7A0FF;
+  --color-cyan-400: #9030F8;
+  --color-cyan-500: #7000F8;
+  --color-sky-300: #C7A0FF;
+  --color-sky-400: #9030F8;
+  --color-sky-500: #7000F8;
+}
+
+:root {
+  color-scheme: light;
+  --vixora-navy: #0F1535;
+  --vixora-navy-dark: #070A1E;
+  --vixora-purple: #5B5FED;
+  --vixora-purple-dark: #480878;
+  --vixora-violet: #9030F8;
+  --vixora-electric: #7000F8;
+  --vixora-accent-gold: #FFD700;
+  --vixora-white: #FFFFFF;
+  --vixora-surface: #F7F7FC;
+  --vixora-muted: #5F6078;
+  --vixora-border: #E5E5F0;
+  --vixora-dark: #08082F;
+  --vixora-gradient: linear-gradient(135deg, #0F1535 0%, #480878 52%, #5B5FED 100%);
+}
+
+html { color-scheme: light; background: var(--vixora-white); }
+
+body {
+  margin: 0;
+  background: var(--vixora-white);
+  color: var(--vixora-navy);
+  font-family: inherit;
+}
+
+.vixora-page { background: var(--vixora-white); color: var(--vixora-navy); }
+.vixora-surface { background: var(--vixora-surface); }
+.vixora-border { border-color: var(--vixora-border); }
+.vixora-text-muted { color: var(--vixora-muted); }
+.vixora-gradient { background: var(--vixora-gradient); }
+.vixora-gradient-text {
+  background: var(--vixora-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Reference VibeCoding-inspired typography & neo-brutalist tactile shadows */
+.font-display {
+  font-family: 'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+.font-hand {
+  font-family: 'Gochi Hand', 'Caveat', cursive;
+}
+
+.shadow-retro {
+  box-shadow: 4px 4px 0px #1A1D4F;
+}
+
+.shadow-retro-sm {
+  box-shadow: 2px 2px 0px #1A1D4F;
+}
+
+.shadow-retro-lg {
+  box-shadow: 6px 6px 0px #1A1D4F;
+}
+
+.shadow-retro-xl {
+  box-shadow: 8px 8px 0px #1A1D4F;
+}
+
+.shadow-retro-purple {
+  box-shadow: 4px 4px 0px #5B5FED;
+}
+
+.shadow-retro-gold {
+  box-shadow: 4px 4px 0px #FFC107;
+}
+
+@keyframes bounceSoft {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-bounce-soft {
+  animation: bounceSoft 3s ease-in-out infinite;
+}
+
+input:not([class*="bg-"]):not([style*="background"]):not(:is(.modal-dark, [role="dialog"], [data-theme="dark"]) *),
+select:not([class*="bg-"]):not(:is(.modal-dark, [role="dialog"], [data-theme="dark"]) *),
+textarea:not([class*="bg-"]):not([style*="background"]):not(:is(.modal-dark, [role="dialog"], [data-theme="dark"]) *) {
+  background: var(--vixora-white);
+  border-color: var(--vixora-border);
+  color: var(--vixora-navy);
+}
+input::placeholder, textarea::placeholder { color: var(--vixora-muted); }
+
+/* High contrast text rules on dark navy/purple backgrounds, modals, and cards */
+.modal-dark,
+[role="dialog"].modal-dark,
+[data-theme="dark"],
+.bg-\[\#070A1E\],
+.bg-\[\#0B0F2A\],
+.bg-\[\#090D24\],
+.bg-\[\#0E1333\],
+.bg-\[\#0D1230\],
+.bg-\[\#0F1535\],
+.bg-\[\#1A1D4F\],
+.bg-\[\#000048\],
+.bg-\[\#000030\],
+.bg-\[\#000028\],
+.bg-\[\#05020F\],
+.bg-\[\#08082F\],
+.bg-\[\#1E113E\],
+.bg-\[\#0F0724\],
+.bg-\[\#0C061F\],
+.bg-\[\#07031C\],
+.bg-\[\#070314\] {
+  color: #F1F5F9;
+}
+
+/* Ensure all buttons and badges with accent yellow/gold or amber use clear dark navy text */
+.bg-amber-400,
+.bg-amber-500,
+.bg-yellow-400,
+.bg-yellow-500,
+.bg-\[\#FFD700\],
+.bg-\[\#FFC107\] {
+  color: #0F1535 !important;
+  font-weight: 700 !important;
+}
+
+/* The public Vixora site is intentionally light-only for public branding. */
+#theme-toggle-btn,
+button[aria-label="Toggle Theme"] { display: none !important; }
