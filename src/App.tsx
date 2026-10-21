@@ -43,6 +43,7 @@ import { CohortTrackSubpage } from './pages/CohortTrackSubpage';
 import { ACADEMY_COURSES, AcademyCourse } from './data/vixoraContent';
 import { BRAND_CONFIG } from './data/brandConfig';
 import { ThemeProvider } from './context/ThemeContext';
+import { CurrencyProvider } from './context/CurrencyContext';
 import { getPostBySlug } from './data/categoriesData';
 import { getCohortTrackBySlug } from './data/cohortData';
 
@@ -752,8 +753,10 @@ export default function App() {
   return (
     <ThemeProvider>
       <LoadingProvider>
-        <GlobalLoadingIndicator />
-        <AppContent />
+        <CurrencyProvider>
+          <GlobalLoadingIndicator />
+          <AppContent />
+        </CurrencyProvider>
       </LoadingProvider>
     </ThemeProvider>
   );

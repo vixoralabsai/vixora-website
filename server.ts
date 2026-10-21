@@ -76,6 +76,76 @@ app.get('/api/health', (req, res) => {
   });
 });
 
+// Geolocation endpoint for location-based currency (USD outside Nigeria, NGN in Nigeria)
+app.get('/api/geo', async (req, res) => {
+  try {
+    // 1. Check CDN and edge cloud proxy headers
+    const rawCountry = (
+      req.headers['cf-ipcountry'] ||
+      req.headers['x-vercel-ip-country'] ||
+      req.headers['x-country-code'] ||
+      req.headers['x-country'] ||
+      req.headers['x-appengine-country'] ||
+      ''
+    ).toString().toUpperCase().trim();
+
+    if (rawCountry && rawCountry.length === 2) {
+      const isNigeria = rawCountry === 'NG';
+      return res.json({
+        country: rawCountry,
+        isNigeria,
+        currency: isNigeria ? 'NGN' : 'USD',
+        source: 'header'
+      });
+    }
+
+    // 2. Fallback to client IP lookup if proxied
+    const clientIp = (
+      (req.headers['x-forwarded-for'] as string)?.split(',')[0]?.trim() ||
+      req.socket?.remoteAddress ||
+      ''
+    );
+
+    // If private or localhost IP, return default
+    if (!clientIp || clientIp === '127.0.0.1' || clientIp === '::1' || clientIp.startsWith('192.168.') || clientIp.startsWith('10.')) {
+      return res.json({
+        country: 'UNKNOWN',
+        isNigeria: false,
+        currency: 'USD',
+        source: 'local-default'
+      });
+    }
+
+    // Attempt fast geo IP check
+    const geoRes = await fetch(`https://api.country.is/${encodeURIComponent(clientIp)}`, {
+      signal: AbortSignal.timeout(1500)
+    });
+    if (geoRes.ok) {
+      const geoData: any = await geoRes.json();
+      const detected = (geoData?.country || '').toUpperCase().trim();
+      if (detected && detected.length === 2) {
+        const isNigeria = detected === 'NG';
+        return res.json({
+          country: detected,
+          isNigeria,
+          currency: isNigeria ? 'NGN' : 'USD',
+          source: 'ip'
+        });
+      }
+    }
+  } catch (err) {
+    // Non-blocking fallback
+  }
+
+  // Safe international default: outside Nigeria defaults to USD
+  return res.json({
+    country: 'GLOBAL',
+    isNigeria: false,
+    currency: 'USD',
+    source: 'fallback'
+  });
+});
+
 app.post('/api/analyze-requirements', async (req, res) => {
   try {
     if (!isPlainObject(req.body)) {

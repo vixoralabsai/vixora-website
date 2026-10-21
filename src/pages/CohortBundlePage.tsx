@@ -31,6 +31,7 @@ import {
 import { COHORT_1_BUNDLE, CohortTrackItem, CohortResource } from '../data/cohortData';
 import { AcademyCourse, ACADEMY_COURSES } from '../data/vixoraContent';
 import { BRAND_CONFIG } from '../data/brandConfig';
+import { useCurrency } from '../context/CurrencyContext';
 
 interface CohortBundlePageProps {
   initialTrackSlug?: string;
@@ -49,6 +50,8 @@ export function CohortBundlePage({
   onNavigateAcademy,
   onOpenProjectModal
 }: CohortBundlePageProps) {
+  const { currency, formatPrice } = useCurrency();
+
   // Find initial track index if provided
   const initialIndex = initialTrackSlug
     ? Math.max(0, COHORT_1_BUNDLE.tracks.findIndex(t => t.slug === initialTrackSlug))
@@ -61,6 +64,11 @@ export function CohortBundlePage({
   const [downloadAlert, setDownloadAlert] = useState<string | null>(null);
 
   const activeTrack = COHORT_1_BUNDLE.tracks[activeTrackIndex] || COHORT_1_BUNDLE.tracks[0];
+
+  const masterBundleTuition = formatPrice('course-cohort-1-master-bundle');
+  const masterBundleStandard = currency === 'USD' ? '$95' : COHORT_1_BUNDLE.standardPrice;
+  const bundleSavingsBadge = currency === 'USD' ? 'Save $50' : 'Save ₦50,000';
+  const activeTrackTuition = formatPrice(activeTrack.courseId, activeTrack.tuition);
 
   // Map icon component
   const getTrackIcon = (iconName: string) => {
@@ -178,10 +186,10 @@ export function CohortBundlePage({
                       Full 4-Track All-Access Pass
                     </div>
                     <div className="flex items-baseline gap-2.5 mt-0.5">
-                      <span className="text-2xl sm:text-3xl font-black text-white">{COHORT_1_BUNDLE.tuitionBundle}</span>
-                      <span className="text-xs text-slate-400 line-through">{COHORT_1_BUNDLE.standardPrice}</span>
+                      <span className="text-2xl sm:text-3xl font-black text-white">{masterBundleTuition}</span>
+                      <span className="text-xs text-slate-400 line-through">{masterBundleStandard}</span>
                       <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
-                        Save 52%
+                        {bundleSavingsBadge}
                       </span>
                     </div>
                   </div>
@@ -395,7 +403,7 @@ export function CohortBundlePage({
             <div className="p-4 sm:p-5 rounded-2xl bg-[#F7F7FC] border border-slate-200/80 shrink-0 flex flex-col items-start sm:items-end gap-3 min-w-[260px]">
               <div className="text-left sm:text-right">
                 <div className="text-[10px] font-mono uppercase text-slate-500 font-semibold">Single Track Tuition</div>
-                <div className="text-2xl font-black text-[#0F1535]">{activeTrack.tuition}</div>
+                <div className="text-2xl font-black text-[#0F1535]">{activeTrackTuition}</div>
                 <div className="text-[10px] text-slate-500 font-mono">Includes Telegram access for this track</div>
               </div>
               <div className="flex flex-col sm:flex-row items-center gap-2 w-full sm:w-auto">
@@ -411,7 +419,7 @@ export function CohortBundlePage({
                   className="w-full sm:w-auto px-4 py-2.5 rounded-xl text-xs font-bold bg-[#5B5FED] hover:bg-[#480878] text-white shadow-md transition-all cursor-pointer flex items-center justify-center gap-1.5"
                 >
                   <Award className="w-3.5 h-3.5" />
-                  <span>Enroll ({activeTrack.tuition})</span>
+                  <span>Enroll ({activeTrackTuition})</span>
                 </button>
               </div>
             </div>
@@ -497,7 +505,7 @@ export function CohortBundlePage({
               onClick={() => onEnrollCourse(masterBundleCourse)}
               className="px-5 py-2.5 rounded-xl text-xs font-bold bg-[#0F1535] hover:bg-[#480878] text-white transition-all cursor-pointer shadow-md flex items-center gap-2 shrink-0"
             >
-              <span>Get Full 4-Track Bundle ({COHORT_1_BUNDLE.tuitionBundle})</span>
+              <span>Get Full 4-Track Bundle ({masterBundleTuition})</span>
               <ArrowRight className="w-3.5 h-3.5 text-amber-400" />
             </button>
           </div>
@@ -652,14 +660,14 @@ export function CohortBundlePage({
                 <span>Want complete unmetered access to all 28+ hours of videos &amp; 14 PDFs?</span>
               </div>
               <p className="text-xs text-purple-200">
-                Enroll in the complete Cohort 1.0 4-in-1 Master Bundle for ₦45,000 and receive instant admission to the private Telegram vault.
+                Enroll in the complete Cohort 1.0 4-in-1 Master Bundle for {masterBundleTuition} and receive instant admission to the private Telegram vault.
               </p>
             </div>
             <button
               onClick={() => onEnrollCourse(masterBundleCourse)}
               className="px-6 py-3 rounded-xl text-xs font-bold bg-amber-400 hover:bg-amber-300 text-[#0F1535] transition-all cursor-pointer shadow-md shrink-0 flex items-center gap-2"
             >
-              <span>Enroll in Master Bundle ({COHORT_1_BUNDLE.tuitionBundle})</span>
+              <span>Enroll in Master Bundle ({masterBundleTuition})</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </div>
@@ -743,7 +751,7 @@ export function CohortBundlePage({
                 Diffusion models, prompt engineering, ElevenLabs voice cloning, and viral short-form video creation.
               </p>
               <div className="pt-2">
-                <span className="text-2xl font-black text-[#0F1535]">₦10,000</span>
+                <span className="text-2xl font-black text-[#0F1535]">{formatPrice('course-ai-image-short-videos-creation')}</span>
                 <span className="text-xs text-slate-400 font-mono block">One-time enrollment</span>
               </div>
             </div>
@@ -767,7 +775,7 @@ export function CohortBundlePage({
                   Full 4-Track All-Access Pass
                 </span>
                 <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300">
-                  Save ₦50,000
+                  {bundleSavingsBadge}
                 </span>
               </div>
               <h3 className="text-2xl font-black text-white">Cohort 1.0 Master Bundle</h3>
@@ -775,8 +783,8 @@ export function CohortBundlePage({
                 Complete access to all 4 tracks (AI Content, Automation, Web Dev, Client Acquisition) with all 28+ hours of videos, 14 PDFs, and lifetime Telegram mastermind.
               </p>
               <div className="pt-2 flex items-baseline gap-2">
-                <span className="text-3xl font-black text-white">{COHORT_1_BUNDLE.tuitionBundle}</span>
-                <span className="text-xs text-slate-400 line-through">{COHORT_1_BUNDLE.standardPrice}</span>
+                <span className="text-3xl font-black text-white">{masterBundleTuition}</span>
+                <span className="text-xs text-slate-400 line-through">{masterBundleStandard}</span>
               </div>
               <ul className="space-y-2 text-xs text-purple-100 pt-2 border-t border-white/10">
                 <li className="flex items-center gap-2">
@@ -822,7 +830,7 @@ export function CohortBundlePage({
                 Self-hosted n8n, webhook pipelines, autonomous agents, and enterprise CRM integrations.
               </p>
               <div className="pt-2">
-                <span className="text-2xl font-black text-[#0F1535]">₦30,000</span>
+                <span className="text-2xl font-black text-[#0F1535]">{formatPrice('course-ai-automation-digital-skills')}</span>
                 <span className="text-xs text-slate-400 font-mono block">One-time enrollment</span>
               </div>
             </div>

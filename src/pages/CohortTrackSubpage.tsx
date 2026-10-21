@@ -46,6 +46,7 @@ import { AcademyCourse, ACADEMY_COURSES } from '../data/vixoraContent';
 import { BRAND_CONFIG, getWhatsAppUrl } from '../data/brandConfig';
 import { BankPaymentDetailsCard } from '../components/BankPaymentDetailsCard';
 import { WhatsAppContactButton } from '../components/WhatsAppContactButton';
+import { useCurrency } from '../context/CurrencyContext';
 
 interface CohortTrackSubpageProps {
   trackSlug?: string;
@@ -66,9 +67,15 @@ export function CohortTrackSubpage({
   onNavigateAcademy,
   onOpenProjectModal
 }: CohortTrackSubpageProps) {
+  const { currency, formatPrice } = useCurrency();
+
   // Resolve track object
   const track = initialTrack || (trackSlug ? getCohortTrackBySlug(trackSlug) : undefined) || COHORT_1_BUNDLE.tracks[0];
   const allTracks = getAllCohortTracks();
+
+  const localizedTrackTuition = formatPrice(track.courseId || track.slug, track.tuition);
+  const localizedBundleTuition = formatPrice('course-cohort-1-master-bundle');
+  const localizedBundleStandard = currency === 'USD' ? '$95' : COHORT_1_BUNDLE.standardPrice;
 
   // State
   const [activeVideoModal, setActiveVideoModal] = useState<TrackMediaSession | null>(null);
@@ -300,7 +307,7 @@ export function CohortTrackSubpage({
                       Individual Track Tuition
                     </div>
                     <div className="flex items-baseline gap-2">
-                      <span className="text-3xl font-black text-[#0F1535]">{track.tuition}</span>
+                      <span className="text-3xl font-black text-[#0F1535]">{localizedTrackTuition}</span>
                       <span className="text-xs text-slate-500 font-mono">One-time payment • Lifetime access</span>
                     </div>
                   </div>
@@ -317,26 +324,26 @@ export function CohortTrackSubpage({
                     className="flex-1 px-6 py-3.5 rounded-xl text-sm font-bold bg-[#5B5FED] hover:bg-[#480878] text-white shadow-lg shadow-purple-600/25 transition-all cursor-pointer flex items-center justify-center gap-2"
                   >
                     <Award className="w-4 h-4" />
-                    <span>Enroll in This Track ({track.tuition})</span>
+                    <span>Enroll in This Track ({localizedTrackTuition})</span>
                   </button>
 
                   <button
                     onClick={() => onEnrollCourse(masterBundleCourse)}
                     className="px-5 py-3.5 rounded-xl text-sm font-bold bg-[#0F1535] hover:bg-slate-800 text-white transition-all cursor-pointer flex items-center justify-center gap-2 shrink-0 border border-slate-700"
                   >
-                    <span>Get All 4 Tracks (₦45,000)</span>
+                    <span>Get All 4 Tracks ({localizedBundleTuition})</span>
                     <ArrowRight className="w-4 h-4 text-amber-400" />
                   </button>
                 </div>
 
                 <div className="flex flex-wrap items-center justify-between gap-2 text-[11px] text-slate-500 font-mono pt-1 border-t border-slate-200/60">
-                  <span>⚡ Instant Paystack &amp; Card Checkout</span>
+                  <span>⚡ Instant Paystack &amp; Card Checkout {currency === 'USD' ? '(Accepts International Cards)' : ''}</span>
                   <button
                     onClick={() => setShowBankDetails(!showBankDetails)}
                     className="text-[#5B5FED] hover:underline cursor-pointer font-bold inline-flex items-center gap-1"
                   >
                     <Building2 className="w-3 h-3" />
-                    <span>{showBankDetails ? 'Hide Bank Details' : 'Prefer Direct Bank Transfer?'}</span>
+                    <span>{showBankDetails ? 'Hide Payment Details' : currency === 'USD' ? 'Bank Transfer & Wire Info' : 'Prefer Direct Bank Transfer?'}</span>
                   </button>
                 </div>
 
@@ -345,7 +352,7 @@ export function CohortTrackSubpage({
                   <div className="pt-2 animate-in fade-in">
                     <BankPaymentDetailsCard
                       courseTitle={`${track.title} (Cohort 1.0)`}
-                      tuitionAmount={track.tuition}
+                      tuitionAmount={localizedTrackTuition}
                     />
                   </div>
                 )}

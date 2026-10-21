@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import { BRAND_CONFIG } from '../data/brandConfig';
 import { ACADEMY_COURSES } from '../data/vixoraContent';
+import { CurrencySwitcher } from './CurrencySwitcher';
 
 interface AcademyNavbarProps {
   currentPage: string;
@@ -257,9 +258,12 @@ export function AcademyNavbar({
 
           {/* Action CTAs */}
           <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+            {/* Currency Switcher (USD outside Nigeria, NGN in Nigeria) */}
+            <CurrencySwitcher />
+
             <button
               onClick={() => handleNavClick('student-portal', undefined, undefined, '/pages/student-portal')}
-              className="hidden md:flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold text-white bg-white/15 hover:bg-white/25 border border-white/20 transition-all cursor-pointer"
+              className="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-white bg-white/15 hover:bg-white/25 border border-white/20 transition-all cursor-pointer"
             >
               <User className="w-3.5 h-3.5 text-amber-300" />
               <span>Student Login</span>

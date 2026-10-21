@@ -431,7 +431,7 @@ async function runAllTests() {
 
     assert.equal(res.verified, true);
     assert.equal(res.alreadyFulfilled, true);
-    assert.equal(res.payment?.emailDispatchedAt, dispatchTime, 'Must retain durable dispatch timestamp');
+    assert.equal(new Date(res.payment?.emailDispatchedAt || '').toISOString(), new Date(dispatchTime).toISOString(), 'Must retain durable dispatch timestamp');
   });
 
   // ------------------------------------------------------------------------
