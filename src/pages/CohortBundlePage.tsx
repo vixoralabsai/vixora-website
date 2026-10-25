@@ -684,17 +684,17 @@ export function CohortBundlePage({
 
       {/* 4. Private Telegram Community & Vault Details */}
       <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl bg-gradient-to-br from-[#0F1535] via-[#1A114A] to-[#0A0D28] text-white p-8 sm:p-12 shadow-2xl relative overflow-hidden border border-purple-500/30 space-y-8">
+        <div className="rounded-3xl bg-gradient-to-br from-[#0A0D28] via-[#0F1535] to-[#141B4D] text-white p-8 sm:p-12 shadow-2xl relative overflow-hidden border border-purple-500/40 space-y-8">
           
           <div className="max-w-3xl space-y-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider text-sky-300 bg-sky-950/60 border border-sky-400/40">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider text-sky-300 bg-sky-500/20 border border-sky-400/50 shadow-xs">
               <Send className="w-3.5 h-3.5 text-sky-400" />
               <span>Official Student Community &amp; Content Hub</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
               Why Cohort 1.0 is Hosted on Telegram Private Vault
             </h2>
-            <p className="text-xs sm:text-sm text-purple-100/90 leading-relaxed">
+            <p className="text-sm sm:text-base text-slate-200 leading-relaxed font-normal">
               Unlike generic corporate course portals where videos buffer or expire, Vixora Academy Cohort 1.0 gives you permanent, mobile-optimized, cloud-archived access directly in Telegram.
             </p>
           </div>
@@ -703,13 +703,13 @@ export function CohortBundlePage({
             {COHORT_1_BUNDLE.telegramBenefits.slice(0, 3).map((benefit, bIdx) => (
               <div
                 key={bIdx}
-                className="p-5 rounded-2xl bg-white/5 border border-white/10 space-y-2.5 backdrop-blur-sm"
+                className="p-5 rounded-2xl bg-white/[0.08] border border-white/15 space-y-2.5 backdrop-blur-sm shadow-sm"
               >
-                <div className="w-8 h-8 rounded-xl bg-purple-500/20 text-purple-300 flex items-center justify-center font-mono font-bold text-xs">
+                <div className="w-8 h-8 rounded-xl bg-purple-500/30 text-purple-200 border border-purple-400/30 flex items-center justify-center font-mono font-bold text-xs">
                   0{bIdx + 1}
                 </div>
-                <div className="text-xs font-bold text-white">{benefit}</div>
-                <p className="text-[11px] text-purple-200/80 leading-relaxed">
+                <div className="text-sm font-bold text-white">{benefit}</div>
+                <p className="text-xs text-slate-200 leading-relaxed">
                   Stream high-definition recordings on laptop or mobile, download PDF worksheets directly, and search previous cohort discussions.
                 </p>
               </div>
@@ -717,13 +717,13 @@ export function CohortBundlePage({
           </div>
 
           {/* Student Access Workflow */}
-          <div className="pt-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div className="text-xs text-purple-200">
-              <strong>How it works:</strong> Complete your enrollment online &rarr; Instantly receive the verified Telegram invitation link &rarr; Gain immediate lifetime access.
+          <div className="pt-4 border-t border-white/15 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="text-xs sm:text-sm text-slate-200">
+              <strong className="text-white font-bold">How it works:</strong> Complete your enrollment online &rarr; Instantly receive the verified Telegram invitation link &rarr; Gain immediate lifetime access.
             </div>
             <button
               onClick={() => onEnrollCourse(masterBundleCourse)}
-              className="px-6 py-3 rounded-xl text-xs font-bold bg-white text-[#0F1535] hover:bg-purple-50 transition-all cursor-pointer shadow-md shrink-0 flex items-center gap-2"
+              className="px-6 py-3 rounded-xl text-xs sm:text-sm font-bold bg-white text-[#0F1535] hover:bg-slate-100 transition-all cursor-pointer shadow-md shrink-0 flex items-center gap-2"
             >
               <span>Unlock Telegram Access Now</span>
               <ExternalLink className="w-3.5 h-3.5 text-[#5B5FED]" />
@@ -778,22 +778,22 @@ export function CohortBundlePage({
 
             <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <span className="text-[10px] font-mono font-bold text-amber-300 uppercase tracking-wider">
+                <span className="text-[11px] font-mono font-bold text-amber-300 uppercase tracking-wider">
                   Full 4-Track All-Access Pass
                 </span>
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300">
+                <span className="text-[10px] font-mono font-bold px-2.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
                   {bundleSavingsBadge}
                 </span>
               </div>
-              <h3 className="text-2xl font-black text-white">Cohort 1.0 Master Bundle</h3>
-              <p className="text-xs text-purple-200 leading-relaxed">
+              <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight">Cohort 1.0 Master Bundle</h3>
+              <p className="text-xs sm:text-sm text-slate-200 leading-relaxed font-normal">
                 Complete access to all 4 tracks (AI Content, Automation, Web Dev, Client Acquisition) with all 28+ hours of videos, 14 PDFs, and lifetime Telegram mastermind.
               </p>
               <div className="pt-2 flex items-baseline gap-2">
-                <span className="text-3xl font-black text-white">{masterBundleTuition}</span>
-                <span className="text-xs text-slate-400 line-through">{masterBundleStandard}</span>
+                <span className="text-3xl sm:text-4xl font-black text-white">{masterBundleTuition}</span>
+                <span className="text-xs text-slate-300 font-mono line-through font-semibold">{masterBundleStandard}</span>
               </div>
-              <ul className="space-y-2 text-xs text-purple-100 pt-2 border-t border-white/10">
+              <ul className="space-y-2.5 text-xs sm:text-sm text-slate-100 font-medium pt-3 border-t border-white/15">
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
                   <span>All 4 Complete Course Tracks</span>
