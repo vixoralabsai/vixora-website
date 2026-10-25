@@ -400,26 +400,33 @@ export function CohortBundlePage({
             </div>
 
             {/* Individual Track Tuition & CTA */}
-            <div className="p-4 sm:p-5 rounded-2xl bg-[#F7F7FC] border border-slate-200/80 shrink-0 flex flex-col items-start sm:items-end gap-3 min-w-[260px]">
-              <div className="text-left sm:text-right">
-                <div className="text-[10px] font-mono uppercase text-slate-500 font-semibold">Single Track Tuition</div>
-                <div className="text-2xl font-black text-[#0F1535]">{activeTrackTuition}</div>
-                <div className="text-[10px] text-slate-500 font-mono">Includes Telegram access for this track</div>
+            <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-[#0F1535] via-[#141A46] to-[#0A0D28] text-white border border-purple-500/30 shadow-xl shrink-0 flex flex-col items-start sm:items-end gap-3.5 min-w-[280px]">
+              <div className="text-left sm:text-right space-y-0.5">
+                <div className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-amber-300 font-bold flex items-center sm:justify-end gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0" />
+                  <span>Single Track Tuition</span>
+                </div>
+                <div className="text-2xl sm:text-3xl font-black text-white tracking-tight">
+                  {activeTrackTuition}
+                </div>
+                <div className="text-[11px] text-purple-200/90 font-mono">
+                  Includes Telegram access for this track
+                </div>
               </div>
-              <div className="flex flex-col sm:flex-row items-center gap-2 w-full sm:w-auto">
+              <div className="flex flex-col sm:flex-row items-center gap-2.5 w-full sm:w-auto">
                 <button
                   onClick={() => onNavigateCourse(activeTrack.slug)}
-                  className="w-full sm:w-auto px-4 py-2.5 rounded-xl text-xs font-bold bg-white hover:bg-purple-50 text-[#5B5FED] border border-[#5B5FED]/50 shadow-xs transition-all cursor-pointer flex items-center justify-center gap-1.5"
+                  className="w-full sm:w-auto px-4 py-2.5 rounded-xl text-xs font-bold bg-white hover:bg-slate-100 text-[#0F1535] border border-white shadow-md hover:shadow-lg transition-all cursor-pointer flex items-center justify-center gap-2 group"
                 >
-                  <ExternalLink className="w-3.5 h-3.5" />
-                  <span>Dedicated Subpage</span>
+                  <ExternalLink className="w-3.5 h-3.5 text-[#5B5FED] group-hover:scale-110 transition-transform" />
+                  <span className="text-[#0F1535] font-bold">Dedicated Subpage</span>
                 </button>
                 <button
                   onClick={() => onEnrollCourse(getCourseForTrack(activeTrack.courseId))}
-                  className="w-full sm:w-auto px-4 py-2.5 rounded-xl text-xs font-bold bg-[#5B5FED] hover:bg-[#480878] text-white shadow-md transition-all cursor-pointer flex items-center justify-center gap-1.5"
+                  className="w-full sm:w-auto px-4 py-2.5 rounded-xl text-xs font-bold bg-[#5B5FED] hover:bg-[#480878] text-white shadow-md hover:shadow-indigo-500/30 transition-all cursor-pointer flex items-center justify-center gap-2"
                 >
-                  <Award className="w-3.5 h-3.5" />
-                  <span>Enroll ({activeTrackTuition})</span>
+                  <Award className="w-3.5 h-3.5 text-amber-300" />
+                  <span className="text-white font-bold">Enroll ({activeTrackTuition})</span>
                 </button>
               </div>
             </div>
