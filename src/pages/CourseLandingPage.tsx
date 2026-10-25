@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useCurrency } from '../context/CurrencyContext';
 import {
   GraduationCap,
   Calendar,
@@ -1460,8 +1461,10 @@ export function CourseLandingPage({
     }
   };
 
-  // Derived contextual data for the selected course
-  const pricing = parseCoursePricing(course.tuition);
+  // Derived contextual data for the selected course with dynamic currency
+  const { currency, formatPrice } = useCurrency();
+  const localizedTuition = formatPrice(course.id, course.tuition);
+  const pricing = parseCoursePricing(localizedTuition);
   const problem = getCourseProblemData(course);
   const transformationPhases = getCourseTransformationPhases(course);
   const audiencePersonas = getCourseAudiencePersonas(course);
@@ -1495,7 +1498,7 @@ export function CourseLandingPage({
           {/* Quick Header Actions */}
           <div className="flex items-center gap-2.5 sm:gap-3.5 shrink-0">
             <a
-              href={getWhatsAppUrl(`Hello Vixora Admissions, I am inquiring about ${course.title} (${course.tuition}).`)}
+              href={getWhatsAppUrl(`Hello Vixora Admissions, I am inquiring about ${course.title} (${localizedTuition}).`)}
               target="_blank"
               rel="noopener noreferrer"
               className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border-2 border-[#1A1D4F] bg-white text-xs font-bold text-[#1A1D4F] shadow-retro-sm hover:translate-x-[1px] hover:translate-y-[1px] transition-all"
@@ -1509,7 +1512,7 @@ export function CourseLandingPage({
               size="sm"
               onClick={() => onEnroll(course)}
             >
-              <span>Enroll ({course.tuition})</span>
+              <span>Enroll ({localizedTuition})</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </TactileButton>
           </div>
@@ -1627,7 +1630,7 @@ export function CourseLandingPage({
 
                   <div className="pt-3 border-t-2 border-[#1A1D4F]/10 flex items-center justify-between">
                     <div className="text-xs font-black text-[#1A1D4F]">
-                      {item.course.tuition}
+                      {formatPrice(item.course.id, item.course.tuition)}
                     </div>
                     <button
                       onClick={() => handleSwitchToCourse(item.course)}

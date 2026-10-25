@@ -93,7 +93,7 @@ export const CoursePricingSection: React.FC<CoursePricingSectionProps> = ({
               onClick={onEnroll}
               className="w-full text-center"
             >
-              <span>Enroll Now with Paystack ({course.tuition})</span>
+              <span>Enroll Now with Paystack ({pricing.early})</span>
               <ArrowRight className="w-5 h-5" />
             </TactileButton>
             <div className="flex items-center justify-center gap-3 text-xs font-bold text-slate-700 mt-3">
@@ -137,7 +137,7 @@ export const CoursePricingSection: React.FC<CoursePricingSectionProps> = ({
               <div className="mt-4 animate-in fade-in duration-200">
                 <BankPaymentDetailsCard
                   courseTitle={course.title}
-                  tuitionAmount={course.tuition}
+                  tuitionAmount={pricing.early}
                   onPayOnline={() => onEnroll()}
                 />
               </div>

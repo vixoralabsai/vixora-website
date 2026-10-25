@@ -27,6 +27,7 @@ import { BRAND_CONFIG } from '../data/brandConfig';
 import { BrandLogo } from './BrandLogo';
 import { useTheme } from '../context/ThemeContext';
 import { getAllCategories } from '../data/categoriesData';
+import { CurrencySwitcher } from './CurrencySwitcher';
 
 interface NavbarProps {
   onOpenProjectModal: () => void;
@@ -459,6 +460,9 @@ export function Navbar({
 
           {/* Action CTAs */}
           <div className="hidden sm:flex items-center gap-2.5">
+            {/* Currency Switcher (USD outside Nigeria, NGN in Nigeria) */}
+            <CurrencySwitcher />
+
             {/* Theme Toggle Button */}
             <button
               id="theme-toggle-btn"
@@ -558,6 +562,7 @@ export function Navbar({
 
           {/* Mobile Menu Controls */}
           <div className="flex lg:hidden items-center gap-2">
+            <CurrencySwitcher variant="compact" />
             <button
               onClick={toggleTheme}
               className="p-2 rounded-lg bg-neutral-900 text-neutral-300 border border-purple-500/20"

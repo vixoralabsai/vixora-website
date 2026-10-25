@@ -21,6 +21,7 @@ import {
 } from 'lucide-react';
 import { ACADEMY_COURSES, AcademyCourse } from '../data/vixoraContent';
 import { BRAND_CONFIG, getVideoSources, getImageFallbacks, getDirectImageUrl } from '../data/brandConfig';
+import { useCurrency } from '../context/CurrencyContext';
 
 interface AcademyPageProps {
   onOpenProjectModal: () => void;
@@ -39,6 +40,7 @@ export function AcademyPage({
   onNavigateToStudentPortal,
   onNavigateCohort1
 }: AcademyPageProps) {
+  const { formatPrice, currency } = useCurrency();
   const [selectedTrack, setSelectedTrack] = useState<string>('All Tracks');
   const [sourceIdx, setSourceIdx] = useState(0);
   const [videoLoaded, setVideoLoaded] = useState(false);
@@ -436,7 +438,7 @@ export function AcademyPage({
               className="w-full sm:w-auto px-6 py-3 rounded-xl text-xs font-bold bg-amber-400 hover:bg-amber-300 text-[#000048] transition-all cursor-pointer shadow-md flex items-center justify-center gap-2"
             >
               <Award className="w-3.5 h-3.5 text-[#000048]" />
-              <span>Enroll (₦45,000)</span>
+              <span>Enroll ({formatPrice('course-cohort-1-master-bundle')})</span>
             </button>
           </div>
         </div>
@@ -489,7 +491,7 @@ export function AcademyPage({
                     {course.badge}
                   </span>
                   <div className="text-sm font-black font-mono tracking-tight text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-md border border-emerald-200/60">
-                    {course.tuition}
+                    {formatPrice(course.id, course.tuition)}
                   </div>
                 </div>
 
@@ -560,7 +562,7 @@ export function AcademyPage({
                     onClick={() => onEnrollCourse(course)}
                     className="text-[#480878] hover:text-[#7000F8] font-bold hover:underline cursor-pointer"
                   >
-                    Quick Enroll &rarr;
+                    Quick Enroll ({formatPrice(course.id, course.tuition)}) &rarr;
                   </button>
                 </div>
               </div>

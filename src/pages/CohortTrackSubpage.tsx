@@ -862,7 +862,7 @@ export function CohortTrackSubpage({
                 <div>
                   <h3 className="text-xl font-bold text-[#0F1535]">{track.title}</h3>
                   <div className="mt-2 flex items-baseline gap-2">
-                    <span className="text-3xl font-black text-[#0F1535]">{track.tuition}</span>
+                    <span className="text-3xl font-black text-[#0F1535]">{localizedTrackTuition}</span>
                     <span className="text-xs text-slate-500 font-mono">One-time payment</span>
                   </div>
                 </div>
@@ -891,7 +891,7 @@ export function CohortTrackSubpage({
                 onClick={() => onEnrollCourse(trackCourse)}
                 className="w-full py-3.5 rounded-xl text-xs font-bold bg-[#5B5FED] hover:bg-[#480878] text-white shadow-md transition-all cursor-pointer flex items-center justify-center gap-2"
               >
-                <span>Enroll in {track.shortTitle} ({track.tuition})</span>
+                <span>Enroll in {track.shortTitle} ({localizedTrackTuition})</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
             </div>
@@ -901,7 +901,7 @@ export function CohortTrackSubpage({
               
               {/* Highlight ribbon */}
               <div className="absolute top-4 right-4 bg-amber-400 text-[#0F1535] text-[10px] font-black uppercase px-2.5 py-1 rounded-full font-mono">
-                Best Value • Save 50%+
+                {currency === 'USD' ? 'Best Value • Save $50' : 'Best Value • Save ₦50,000'}
               </div>
 
               <div className="space-y-4">
@@ -914,8 +914,8 @@ export function CohortTrackSubpage({
                 <div>
                   <h3 className="text-xl font-bold text-white">Cohort 1.0 Master Archive</h3>
                   <div className="mt-2 flex items-baseline gap-2">
-                    <span className="text-3xl font-black text-amber-300">{COHORT_1_BUNDLE.tuitionBundle}</span>
-                    <span className="text-xs text-slate-400 line-through font-mono">{COHORT_1_BUNDLE.standardPrice}</span>
+                    <span className="text-3xl font-black text-amber-300">{localizedBundleTuition}</span>
+                    <span className="text-xs text-slate-400 line-through font-mono">{localizedBundleStandard}</span>
                   </div>
                   <p className="text-[11px] text-purple-200 mt-1 font-mono">
                     Includes this track + all 3 other tracks (Content, Automation, Web &amp; Sales)
@@ -946,7 +946,7 @@ export function CohortTrackSubpage({
                 onClick={() => onEnrollCourse(masterBundleCourse)}
                 className="w-full py-3.5 rounded-xl text-xs font-bold bg-amber-400 hover:bg-amber-300 text-[#0F1535] shadow-lg transition-all cursor-pointer flex items-center justify-center gap-2"
               >
-                <span>Unlock All 4 Tracks ({COHORT_1_BUNDLE.tuitionBundle})</span>
+                <span>Unlock All 4 Tracks ({localizedBundleTuition})</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
             </div>
@@ -1005,7 +1005,7 @@ export function CohortTrackSubpage({
             {track.shortTitle}
           </div>
           <div className="text-base font-black text-[#0F1535]">
-            {track.tuition}
+            {localizedTrackTuition}
           </div>
         </div>
 
@@ -1085,7 +1085,7 @@ export function CohortTrackSubpage({
                   className="w-full sm:w-auto px-5 py-2.5 rounded-xl text-xs font-bold bg-[#5B5FED] hover:bg-purple-600 text-white transition-all cursor-pointer flex items-center justify-center gap-2"
                 >
                   <Award className="w-3.5 h-3.5" />
-                  <span>Enroll in Track ({track.tuition})</span>
+                  <span>Enroll in Track ({localizedTrackTuition})</span>
                 </button>
               </div>
             </div>

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useLoading } from '../context/LoadingContext';
+import { useCurrency } from '../context/CurrencyContext';
 import {
   X,
   GraduationCap,
@@ -45,6 +46,9 @@ export function CourseEnrollmentModal({
   onClose,
   onGoToPortal
 }: CourseEnrollmentModalProps) {
+  const { currency, formatPrice } = useCurrency();
+  const localizedTuition = course ? formatPrice(course.id, course.tuition) : '';
+
   // Only 3 required student profile fields: Full Name, Email, and Phone
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
@@ -235,7 +239,7 @@ export function CourseEnrollmentModal({
               <Calendar className="w-3.5 h-3.5" /> Next Cohort: {course.nextCohortDate}
             </span>
             <span>&bull;</span>
-            <span className="text-[#10B981] font-black">{course.tuition} Tuition</span>
+            <span className="text-[#10B981] font-black">{localizedTuition} Tuition</span>
             <span>&bull;</span>
             <span className="text-[#FF8A65]">{course.seatsRemaining} Seats Remaining</span>
           </div>
@@ -295,7 +299,7 @@ export function CourseEnrollmentModal({
               {fundingType === 'self' && selfPaymentMethod === 'bank_transfer' ? (
                 <BankPaymentDetailsCard
                   courseTitle={course.title}
-                  tuitionAmount={course.tuition}
+                  tuitionAmount={localizedTuition}
                   onPayOnline={() => {
                     setIsApplicationSubmitted(false);
                     setSelfPaymentMethod('paystack');
@@ -502,10 +506,12 @@ export function CourseEnrollmentModal({
                           <span className="flex items-center gap-1.5">
                             <ShieldCheck className="w-4 h-4 text-[#10B981]" /> Paystack Multi-Channel Gateway
                           </span>
-                          <span className="text-[#10B981] font-black">{course.tuition}</span>
+                          <span className="text-[#10B981] font-black">{localizedTuition}</span>
                         </div>
                         <p className="text-[11px] text-[#1A1D4F]/75 font-sans">
-                          Supports Debit/Credit Cards, Bank Transfer, USSD, Apple Pay &amp; Mobile Money.
+                          {currency === 'USD'
+                            ? 'Accepts International Cards (Mastercard, Visa, Amex), Apple Pay & Global Bank Cards.'
+                            : 'Supports Debit/Credit Cards, Bank Transfer, USSD, Apple Pay & Mobile Money.'}
                         </p>
                       </div>
                     )}
@@ -557,7 +563,7 @@ export function CourseEnrollmentModal({
                       </>
                     ) : fundingType === 'self' && selfPaymentMethod === 'paystack' ? (
                       <>
-                        <span>Submit Enrollment &amp; Pay</span>
+                        <span>Submit Enrollment &amp; Pay ({localizedTuition})</span>
                         <ArrowRight className="w-4 h-4" />
                       </>
                     ) : (
