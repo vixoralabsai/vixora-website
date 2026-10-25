@@ -691,29 +691,55 @@ export function CohortBundlePage({
               <Send className="w-3.5 h-3.5 text-sky-400" />
               <span>Official Student Community &amp; Content Hub</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
-              Why Cohort 1.0 is Hosted on Telegram Private Vault
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight leading-tight">
+              Why Cohort 1.0 is Hosted on{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-teal-300 to-amber-300">
+                Telegram Private Vault
+              </span>
             </h2>
-            <p className="text-sm sm:text-base text-slate-200 leading-relaxed font-normal">
+            <p className="text-sm sm:text-base text-purple-200/90 leading-relaxed font-normal">
               Unlike generic corporate course portals where videos buffer or expire, Vixora Academy Cohort 1.0 gives you permanent, mobile-optimized, cloud-archived access directly in Telegram.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {COHORT_1_BUNDLE.telegramBenefits.slice(0, 3).map((benefit, bIdx) => (
-              <div
-                key={bIdx}
-                className="p-5 rounded-2xl bg-white/[0.08] border border-white/15 space-y-2.5 backdrop-blur-sm shadow-sm"
-              >
-                <div className="w-8 h-8 rounded-xl bg-purple-500/30 text-purple-200 border border-purple-400/30 flex items-center justify-center font-mono font-bold text-xs">
-                  0{bIdx + 1}
+            {COHORT_1_BUNDLE.telegramBenefits.slice(0, 3).map((benefit, bIdx) => {
+              const cardAccents = [
+                {
+                  badgeBg: 'bg-sky-500/20 text-sky-300 border-sky-400/40',
+                  cardBorder: 'hover:border-sky-400/50',
+                  textColor: 'text-sky-100/90',
+                  description: 'Ask questions, get debugging assistance, and receive direct tactical feedback from Dean Sarumi and mentors daily.'
+                },
+                {
+                  badgeBg: 'bg-amber-500/20 text-amber-300 border-amber-400/40',
+                  cardBorder: 'hover:border-amber-400/50',
+                  textColor: 'text-amber-100/90',
+                  description: 'Stream ultra-clear 1080p recordings on laptop or mobile with no expiring links, timeouts, or playback limits.'
+                },
+                {
+                  badgeBg: 'bg-emerald-500/20 text-emerald-300 border-emerald-400/40',
+                  cardBorder: 'hover:border-emerald-400/50',
+                  textColor: 'text-emerald-100/90',
+                  description: 'Directly download production PDF blueprints, copy-paste prompt swipe files, and pre-built workflow JSONs.'
+                }
+              ][bIdx];
+
+              return (
+                <div
+                  key={bIdx}
+                  className={`p-5 rounded-2xl bg-white/[0.08] border border-white/15 space-y-2.5 backdrop-blur-sm shadow-sm transition-all ${cardAccents.cardBorder}`}
+                >
+                  <div className={`w-8 h-8 rounded-xl border flex items-center justify-center font-mono font-bold text-xs ${cardAccents.badgeBg}`}>
+                    0{bIdx + 1}
+                  </div>
+                  <div className="text-sm font-bold text-white">{benefit}</div>
+                  <p className={`text-xs ${cardAccents.textColor} leading-relaxed`}>
+                    {cardAccents.description}
+                  </p>
                 </div>
-                <div className="text-sm font-bold text-white">{benefit}</div>
-                <p className="text-xs text-slate-200 leading-relaxed">
-                  Stream high-definition recordings on laptop or mobile, download PDF worksheets directly, and search previous cohort discussions.
-                </p>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           {/* Student Access Workflow */}
